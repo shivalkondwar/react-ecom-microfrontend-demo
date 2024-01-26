@@ -6,7 +6,7 @@ module.exports = {
   entry: "./src/entry.js",
   mode: "development",
   devServer: {
-    port: 3001,
+    port: 3002,
   },
   module: {
     rules: [
@@ -34,10 +34,10 @@ module.exports = {
       favicon: "./public/favicon.ico",
     }),
     new ModuleFederationPlugin({
-      name: "ProductApp",
+      name: "CartApp",
       filename: "remoteEntry.js",
       exposes: {
-        "./ProductList": "./src/App",
+        "./Cart": "./src/App",
       },
       shared: {
         ...dependencies,

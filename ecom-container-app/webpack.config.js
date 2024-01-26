@@ -6,7 +6,7 @@ module.exports = {
   entry: "./src/entry.js",
   mode: "development",
   devServer: {
-    port: 3000, // port 3001 for header-app
+    port: 3000,
   },
   module: {
     rules: [
@@ -34,10 +34,10 @@ module.exports = {
       favicon: "./public/favicon.ico",
     }),
     new ModuleFederationPlugin({
-      name: "EcomApp", // This application named 'Home'
+      name: "EcomApp",
       remotes: {
-        // a remote 'Header' from the url '<http://localhost:3001/remoteEntry.js>'
         ProductApp: "ProductApp@http://localhost:3001/remoteEntry.js",
+        CartApp: "CartApp@http://localhost:3002/remoteEntry.js",
       },
       shared: {
         ...dependencies,
